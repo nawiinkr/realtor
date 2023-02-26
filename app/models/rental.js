@@ -1,4 +1,4 @@
-import Model, { attr } from '@ember-data/model';
+import Model, { attr, belongsTo } from '@ember-data/model';
 
 const COMMUNITY_CATEGORIES = ['Condo', 'Townhouse', 'Apartment'];
 
@@ -11,6 +11,7 @@ export default class RentalModel extends Model {
   @attr image;
   @attr bedrooms;
   @attr description;
+  @attr userId;
 
   get type() {
     if (COMMUNITY_CATEGORIES.includes(this.category)) {
@@ -19,4 +20,6 @@ export default class RentalModel extends Model {
       return 'Standalone';
     }
   }
+
+  @belongsTo('user') user;
 }

@@ -1,0 +1,51 @@
+{{page-title "User Registration"}}
+<RegistrationFormPage @title="Sign Up" @submitBtnText="Sign In">
+  <label>
+    Who are you ?
+  </label>
+  <div class="inline-flex gap-4 cursor-pointer">
+    {{#each
+      (array
+        (hash title="Buyer/Owner" key=1)
+        (hash title="Agent" key=2)
+        (hash title="Builder" key=3)
+      )
+      as |userType|
+    }}
+      <div class="inline-flex gap-1 cursor-pointer">
+        <input type="radio" name="user_type_selection" value={{userType.key}} />
+        <label for={{userType.key}}>{{userType.title}}</label>
+      </div>
+    {{/each}}
+  </div>
+  <label>First Name</label>
+  <Input />
+  <label>Last Name</label>
+  <Input />
+  <label>Email</label>
+  <Input type="email" />
+  <label>Password</label>
+  <Input type="password" />
+  <label>Gender</label>
+  <div class="inline-flex gap-4 cursor-pointer">
+    {{#each
+      (array
+        (hash title="Male" key=1)
+        (hash title="Female" key=2)
+        (hash title="Prefer not to say" key=3)
+      )
+      as |genderType|
+    }}
+      <div class="inline-flex gap-1 cursor-pointer">
+        <input
+          type="radio"
+          name="gender_type_selection"
+          value={{genderType.key}}
+        />
+        <label for={{genderType.key}}>{{genderType.title}}</label>
+      </div>
+    {{/each}}
+  </div>
+  <label>Mobile No.</label>
+  <Input type="tel" />
+</RegistrationFormPage>

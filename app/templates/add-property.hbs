@@ -1,0 +1,51 @@
+{{page-title "Add Property"}}
+<div class="flex flex-col items-center">
+  <form class="flex flex-col max-w-xl w-full" {{on "submit" this.createRecord}}>
+    <label>
+      Title
+    </label>
+    <Input name="title" @value={{this.title}} />
+    <label>
+      Owner
+    </label>
+    <Input name="owner" @value={{this.owner}} />
+    <label>
+      City
+    </label>
+    <Input name="city" @value={{this.city}}/>
+    <label>
+      Location
+    </label>
+    <Input name="location" @value={{this.location}} />
+    <label>
+      Image Urls
+    </label>
+    <Input name="image-url" @value={{this.imageUrl}}/>
+    <label>Description
+    </label>
+    <Textarea name="description" @value={{this.description}} />
+    <label>No. of Bedrooms
+    </label>
+    <select name="bedrooms" {{on 'change' this.setBedrooms}}>
+      {{#each (range 0 10 true) as |bedroomCount|}}
+        <option value={{bedroomCount}}>{{bedroomCount}}</option>
+      {{/each}}
+    </select>
+    <label>Category
+    </label>
+    <select name="category" {{on 'change' this.setCategory}}>
+      {{#each
+        (array
+          (hash key="disabled" name="Select--an--option")
+          (hash key="condo" name="Condo")
+          (hash key="apartment" name="Apartment")
+          (hash key="office" name="Office Space")
+        )
+        as |category|
+      }}
+        <option value={{category.key}}>{{category.name}}</option>
+      {{/each}}
+    </select>
+    <input type="submit" value="Add Property" />
+  </form>
+</div>

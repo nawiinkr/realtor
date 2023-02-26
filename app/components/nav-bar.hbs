@@ -1,13 +1,24 @@
-<nav class="menu">
+<nav class="menu flex flex-row items-center">
   <LinkTo @route="index" class="menu-index">
     <h1>SuperRentals</h1>
   </LinkTo>
-  <div class="links">
-    <LinkTo @route="about" class="menu-about">
-      About
-    </LinkTo>
-    <LinkTo @route="contact" class="menu-contact">
-      Contact
+  <LinkTo @route="about" class="menu-about">
+    About
+  </LinkTo>
+  <LinkTo @route="contact" class="menu-contact">
+    Contact
+  </LinkTo>
+  <div class="flex ml-auto items-center">
+    <DropdownMenu @title="Login" class="menu-contact">
+      <LinkTo @route="login">
+        Login
+      </LinkTo>
+      <LinkTo @route="user-registration">
+        Sign Up
+      </LinkTo>
+    </DropdownMenu>
+    <LinkTo @route="add-property" class="menu-contact">
+      Add Your Property
     </LinkTo>
   </div>
 </nav>

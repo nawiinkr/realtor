@@ -1,0 +1,17 @@
+<div class="min-h-fit">
+  <span
+    class="cursor-pointer inline-flex items-center h-16"
+    {{on "click" (toggle "expanded" this)}}
+    {{did-insert this.mount}}
+  >
+    {{@title}}
+    <span class="material-icons">
+      {{if this.expanded "expand_less" "expand_more"}}
+    </span>
+  </span>
+  {{#if this.expanded}}
+    <div class="absolute flex flex-col items-center border-spacing-1 rounded-md bg-slate-300 text-gray-700">
+      {{yield}}
+    </div>
+  {{/if}}
+</div>

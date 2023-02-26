@@ -78,10 +78,10 @@ p {
  */
 
 .menu {
-  height: 4em;
+  height: 4rem;
   background-color: #677ae4;
   background-color: #05526A;
-  background-color: #e46855;
+ /*  background-color: #e46855; */
 }
 
 .menu h1 {
@@ -464,4 +464,8 @@ p {
   clip: rect(0 0 0 0);
   height: 1px; width: 1px;
   margin: -1px; padding: 0; border: 0;
+}
+
+.registration-form-page-form {
+  min-width: 400px;
 }

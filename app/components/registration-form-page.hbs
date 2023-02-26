@@ -1,0 +1,16 @@
+<div class="flex h-screen">
+  <img
+    class="w-1/2 h-screen hidden md:block"
+    src="https://1.bp.blogspot.com/-Zwh7wuXPjrs/XxmjBAFhr-I/AAAAAAAAG8Y/HPtDSCaECzo1Nh65SlQHxSllUE8VU9CKgCLcBGAsYHQ/d/HOUSE%2BIN%2BTHE%2BLAKE%2B.jpg"
+  />
+  <div class="w-full h-full flex items-center justify-center">
+    <form
+      class="flex gap-3 flex-col registration-form-page-form rounded-md border-solid border-2 border-gray-300 bg-slate-200 shadow-md p-4"
+    >
+      <h2 class="text-center">{{@title}}</h2>
+      {{yield}}
+      <input type="submit" value={{@submitBtnText}} />
+    </form>
+  </div>
+
+</div>
