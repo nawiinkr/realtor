@@ -21,9 +21,9 @@ export default class UserModel extends Model {
       case 2:
         return 'Female';
       case 3:
-        return 'Other';
-      case 4:
         return 'Prefer Not to say';
+      case 4:
+        return 'Other';
     }
   }
 

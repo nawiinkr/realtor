@@ -1,5 +1,12 @@
 {{page-title "User Registration"}}
-<RegistrationFormPage @title="Sign Up" @submitBtnText="Sign In">
+<RegistrationFormPage
+  @title="Sign Up"
+  @submitBtnText="Sign Up"
+  @submitAction={{this.createAccount}}
+  @successMessage={{this.successMessage}}
+  @errorMessage={{this.errorMessage}}
+  @disabled={{this.disabled}}
+>
   <label>
     Who are you ?
   </label>
@@ -13,19 +20,24 @@
       as |userType|
     }}
       <div class="inline-flex gap-1 cursor-pointer">
-        <input type="radio" name="user_type_selection" value={{userType.key}} />
+        <Input
+          @type="radio"
+          name="user_type_selection"
+          value={{userType.key}}
+          {{on "input" (set this "userType" userType.key)}}
+        />
         <label for={{userType.key}}>{{userType.title}}</label>
       </div>
     {{/each}}
   </div>
   <label>First Name</label>
-  <Input />
+  <Input @value={{this.firstName}} />
   <label>Last Name</label>
-  <Input />
+  <Input @value={{this.lastName}} />
   <label>Email</label>
-  <Input type="email" />
+  <Input @type="email" @value={{this.email}} />
   <label>Password</label>
-  <Input type="password" />
+  <Input @type="password" @value={{this.password}} />
   <label>Gender</label>
   <div class="inline-flex gap-4 cursor-pointer">
     {{#each
@@ -37,15 +49,16 @@
       as |genderType|
     }}
       <div class="inline-flex gap-1 cursor-pointer">
-        <input
-          type="radio"
+        <Input
+          @type="radio"
           name="gender_type_selection"
           value={{genderType.key}}
+          {{on "input" (set this "gender" genderType.key)}}
         />
         <label for={{genderType.key}}>{{genderType.title}}</label>
       </div>
     {{/each}}
   </div>
   <label>Mobile No.</label>
-  <Input type="tel" />
+  <Input @type="tel" @value={{this.phone}} />
 </RegistrationFormPage>

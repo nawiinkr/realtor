@@ -13,4 +13,5 @@ Router.map(function () {
   this.route('add-property');
   this.route('user-registration');
   this.route('login');
+  this.route('logout');
 });

@@ -9,13 +9,20 @@
     Contact
   </LinkTo>
   <div class="flex ml-auto items-center">
-    <DropdownMenu @title="Login" class="menu-contact">
-      <LinkTo @route="login">
-        Login
-      </LinkTo>
-      <LinkTo @route="user-registration">
-        Sign Up
-      </LinkTo>
+    {{log @user}}
+    <DropdownMenu @title={{if @loggedIn @user.fullName "Login"}} class="menu-contact">
+      {{#if @loggedIn}}
+        <LinkTo @route="logout">
+          Logout
+        </LinkTo>
+      {{else}}
+        <LinkTo @route="login">
+          Login
+        </LinkTo>
+        <LinkTo @route="user-registration">
+          Sign Up
+        </LinkTo>
+      {{/if}}
     </DropdownMenu>
     <LinkTo @route="add-property" class="menu-contact">
       Add Your Property

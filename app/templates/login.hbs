@@ -1,7 +1,14 @@
 {{page-title "Login"}}
-<RegistrationFormPage @title="Login">
+<RegistrationFormPage
+  @title="Login"
+  @submitBtnText="Login"
+  @submitAction={{this.login}}
+  @successMessage={{this.successMessage}}
+  @errorMessage={{this.errorMessage}}
+  @disabled={{this.disabled}}
+>
   <label>Email</label>
-  <Input type="email" />
+  <Input @type="email" @value={{this.email}} />
   <label>Password</label>
-  <Input type="password" />
+  <Input @type="password" @value={{this.password}} />
 </RegistrationFormPage>
