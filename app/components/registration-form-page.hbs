@@ -5,7 +5,7 @@
   />
   <div class="w-full h-full flex items-center justify-center">
     <form
-      class="flex gap-3 flex-col registration-form-page-form rounded-md border-solid border-2 border-gray-300 bg-slate-200 shadow-md p-4"
+      class="flex gap-3 flex-col w-10/12 sm:w-9/12 md:w-7/12 rounded-md border-solid border-2 border-gray-300 bg-slate-200 shadow-md p-4"
       {{on "submit" this.onFormSubmit}}
     >
       <h2 class="text-center">{{@title}}</h2>
@@ -15,12 +15,16 @@
       {{else if @successMessage}}
         <div class="text-green-400 text-xs">{{@successMessage}}</div>
       {{/if}}
-      <Input
-        @type="submit"
-        @value={{@submitBtnText}}
-        class="{{if @disabled 'cursor-not-allowed' 'cursor-pointer'}}"
+      <button
+        type="submit"
+        class="w-fit px-2 py-1 rounded-md self-center
+          {{if
+            @disabled
+            'cursor-not-allowed bg-slate-200 text-gray-500'
+            'cursor-pointer bg-slate-700 text-white'
+          }}"
         disabled={{@disabled}}
-      />
+      >{{@submitBtnText}}</button>
     </form>
   </div>
 

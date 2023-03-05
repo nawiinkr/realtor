@@ -1,3 +1,6 @@
-import Route from '@ember/routing/route';
+import AuthenticationRoute from "./authentication";
 
-export default class AddPropertyRoute extends Route {}
+export default class AddPropertyRoute extends AuthenticationRoute {
+
+    
+}

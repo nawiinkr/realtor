@@ -1,4 +1,4 @@
-<nav class="menu flex flex-row items-center">
+<nav class="menu flex flex-col sm:flex-row items-center">
   <LinkTo @route="index" class="menu-index">
     <h1>SuperRentals</h1>
   </LinkTo>
@@ -8,10 +8,13 @@
   <LinkTo @route="contact" class="menu-contact">
     Contact
   </LinkTo>
-  <div class="flex ml-auto items-center">
+  <div class="flex sm:ml-auto items-center">
     {{log @user}}
     <DropdownMenu @title={{if @loggedIn @user.fullName "Login"}} class="menu-contact">
       {{#if @loggedIn}}
+        <LinkTo @route="logout">
+          Edit Profile
+        </LinkTo>
         <LinkTo @route="logout">
           Logout
         </LinkTo>
@@ -24,8 +27,10 @@
         </LinkTo>
       {{/if}}
     </DropdownMenu>
-    <LinkTo @route="add-property" class="menu-contact">
-      Add Your Property
-    </LinkTo>
+    {{#if @loggedIn}}
+      <LinkTo @route="add-property" class="menu-contact">
+        Add Your Property
+      </LinkTo>
+    {{/if}}
   </div>
 </nav>

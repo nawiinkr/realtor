@@ -29,20 +29,27 @@ export default class LoginController extends Controller {
     localStorage.setItem('loggedInUser', this.email);
   }
 
+  url(path) {
+    const { origin, pathname } = window.location;
+    return `${origin}${pathname}#/${path}`;
+  }
+
   @action
   async login() {
     this.successMessage = null;
     this.errorMessage = null;
     const existingUsers = await this.store.findAll('user');
-    if (
-      existingUsers.find(
-        (e) =>
-          e.email === this.email && e.password === md5(this.password).toString()
-      )
-    ) {
+    const user = existingUsers.find(
+      (e) =>
+        e.email === this.email && e.password === md5(this.password).toString()
+    );
+    if (user) {
       this.successMessage = 'Logged in successfully';
-      this.storeSession();
-      location.reload();
+      this.storeSession(user);
+      if (this.redirectTo) {
+        window.location.href = this.url(this.redirectTo);
+      }
+      window.location.reload();
     } else {
       this.errorMessage = 'Email or password incorrect!!';
     }

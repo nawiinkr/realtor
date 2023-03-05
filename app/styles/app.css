@@ -78,9 +78,9 @@ p {
  */
 
 .menu {
-  height: 4rem;
   background-color: #677ae4;
   background-color: #05526A;
+  background-color: #64748b;
  /*  background-color: #e46855; */
 }
 
@@ -130,7 +130,6 @@ p {
 .rentals input {
   padding: 11px;
   font-size: 18px;
-  width: 500px;
   margin: 20px auto 50px;
   background-color: rgba(255, 255, 255, 0.75);
   border: solid 1px lightgray;
@@ -455,7 +454,6 @@ p {
   width: 200px;
 
   position: relative;
-  top: -25px;
 }
 
 .screen-reader{
@@ -464,8 +462,4 @@ p {
   clip: rect(0 0 0 0);
   height: 1px; width: 1px;
   margin: -1px; padding: 0; border: 0;
-}
-
-.registration-form-page-form {
-  min-width: 400px;
 }

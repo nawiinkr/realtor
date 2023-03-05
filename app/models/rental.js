@@ -12,6 +12,7 @@ export default class RentalModel extends Model {
   @attr bedrooms;
   @attr description;
   @attr userId;
+  @attr userEmail;
 
   get type() {
     if (COMMUNITY_CATEGORIES.includes(this.category)) {

@@ -18,6 +18,9 @@ module.exports = function (environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
+    intl: {
+      locales: ['en-us'],
+    },
   };
 
   if (environment === 'development') {
@@ -40,10 +43,7 @@ module.exports = function (environment) {
     ENV.APP.autoboot = false;
   }
 
-  if (environment === 'production') {
-    // here you can enable a production-specific feature
-    ENV.locationType = 'hash';
-  }
+  ENV.locationType = 'hash';
 
   ENV.MAPBOX_ACCESS_TOKEN =
     'pk.eyJ1IjoibmF3aW5rciIsImEiOiJjbGRjeGlxMnQwMnJ3M3VudDRyYzZ3eHZqIn0.4bDIxT2GHHT2e8ryrJiGnQ';
