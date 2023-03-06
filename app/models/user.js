@@ -40,6 +40,8 @@ export default class UserModel extends Model {
     }
   }
 
-  @hasMany('rental')
+  @hasMany('rental', {
+    async: false
+  })
   rentals;
 }

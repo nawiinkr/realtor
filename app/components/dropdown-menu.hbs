@@ -1,6 +1,6 @@
 <div class="min-h-fit">
   <span
-    class="cursor-pointer inline-flex items-center h-16"
+    class="cursor-pointer inline-flex items-center h-16 mr-4"
     {{on "click" (toggle "expanded" this)}}
     {{did-insert this.mount}}
   >
@@ -10,7 +10,7 @@
     </span>
   </span>
   {{#if this.expanded}}
-    <div class="absolute min-w-max flex flex-col border-spacing-1 rounded-b-sm bg-slate-400 text-gray-700">
+    <div class="absolute right-2 min-w-max flex flex-col border-spacing-1 rounded-b-sm bg-slate-400 text-gray-700">
       {{yield}}
     </div>
   {{/if}}

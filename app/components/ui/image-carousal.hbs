@@ -1,0 +1,25 @@
+<div class="image-carousal-container">
+  {{#if @imageOptions.length}}
+    <span
+      class="material-icons"
+      {{on "click" this.decrement}}
+    >navigate_before</span>
+    <div class="image-carousal-container-image-container">
+      {{#each @imageOptions as |imageOption index|}}
+        <img class="carousal-image {{if (eq index this.selectedIndex) 'carousal-image-visible' 'carousal-image-hidden'}}" src={{imageOption}} />
+      {{/each}}
+    </div>
+    <span
+      class="material-icons right"
+      {{on "click" this.increment}}
+    >navigate_next</span>
+  {{else}}
+    <div class="image-carousal-container-image-container">
+      <img
+        class="carousal-image"
+        src="https://www.foodnavigator.com/var/wrbm_gb_food_pharma/storage/images/7/8/6/4/224687-6-eng-GB/EPC-Natural-Products-Co.-Ltd.-SIC-Food-20132.jpg"
+      />
+    </div>
+
+  {{/if}}
+</div>

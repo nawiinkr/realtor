@@ -1,8 +1,9 @@
 <article class="rental">
-  <Rental::Image
-    src={{@rental.image}}
+  {{!-- <Rental::Image
+    src={{@rental.images}}
     alt={{@rental.description}}
-  />
+  /> --}}
+  <Ui::ImageCarousal @imageOptions={{@rental.images}} />
   <div class="details">
 
     <h3>

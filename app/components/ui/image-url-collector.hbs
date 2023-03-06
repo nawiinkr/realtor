@@ -1,0 +1,21 @@
+<div class="flex flex-row gap-2">
+  <Input @value={{this.imageUrl}} class="flex-1" />
+  <span
+    class="material-icons cursor-pointer
+      {{if this.isDisabled 'pointer-events-none cursor-not-allowed'}}"
+    {{on "click" this.verifyAndAddImage}}
+  >
+    add
+  </span>
+</div>
+<div class="flex flex-row gap-1 overflow-scroll">
+  {{#each @images as |src|}}
+    <div class="relative">
+      <img src={{src}} width="80px" style="min-width: 80px;"/>
+      <span
+        class="material-icons absolute top-0 right-0 text-md cursor-pointer"
+        {{on "click" (fn this.removeImage src)}}
+      >delete</span>
+    </div>
+  {{/each}}
+</div>

@@ -32,7 +32,7 @@ export default class AddPropertyController extends Controller {
   category = 0;
 
   @tracked
-  imageUrl = '';
+  imageUrls = [];
 
   get disabled() {
     return (
@@ -40,7 +40,7 @@ export default class AddPropertyController extends Controller {
       !this.owner.trim() ||
       !this.city.trim() ||
       !this.location.trim() ||
-      !this.imageUrl.trim() ||
+      !this.imageUrls.length ||
       !this.description.trim() ||
       !this.category ||
       !this.noOfBedrooms
@@ -56,10 +56,14 @@ export default class AddPropertyController extends Controller {
       city: this.city,
       location: this.location,
       category: this.category,
-      image: this.imageUrl,
+      images: this.imageUrls,
       bedrooms: this.noOfBedrooms,
       description: this.description,
+      userId: this.loggedInUser.id,
+      userEmail: this.loggedInUser.email,
+      user: this.loggedInUser
     });
+    debugger;
     await propertyObject.save();
     this.router.transitionTo('index');
   }
@@ -71,5 +75,10 @@ export default class AddPropertyController extends Controller {
   @action
   setCategory(event) {
     this.category = event.target.value;
+  }
+
+  @action
+  addImageUrl(urls) {
+    this.imageUrls = [...urls];
   }
 }

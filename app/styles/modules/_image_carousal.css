@@ -1,0 +1,7 @@
+.image-carousal-container {
+    background-color: aqua;
+}
+
+.image-carousal-container .image {
+    position: absolute;
+}

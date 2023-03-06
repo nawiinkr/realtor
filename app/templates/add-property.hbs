@@ -24,9 +24,9 @@
     </label>
     <Input name="location" @value={{this.location}} />
     <label>
-      Image Urls
+      Add Images via url
     </label>
-    <Input name="image-url" @value={{this.imageUrl}}/>
+    <Ui::ImageUrlCollector @onAddUrl={{this.addImageUrl}} @images={{this.imageUrls}}/>
     <label>Description
     </label>
     <Textarea name="description" @value={{this.description}} />

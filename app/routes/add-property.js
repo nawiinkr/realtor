@@ -1,6 +1,3 @@
-import AuthenticationRoute from "./authentication";
+import AuthenticationRoute from './authentication';
 
-export default class AddPropertyRoute extends AuthenticationRoute {
-
-    
-}
+export default class AddPropertyRoute extends AuthenticationRoute {}

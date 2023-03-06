@@ -8,9 +8,17 @@
   <LinkTo @route="contact" class="menu-contact">
     Contact
   </LinkTo>
+  {{#if @loggedIn}}
+    <LinkTo @route="add-property" class="menu-contact">
+      Add Your Property
+    </LinkTo>
+  {{/if}}
   <div class="flex sm:ml-auto items-center">
     {{log @user}}
-    <DropdownMenu @title={{if @loggedIn @user.fullName "Login"}} class="menu-contact">
+    <DropdownMenu
+      @title={{if @loggedIn @user.fullName "Login"}}
+      class="menu-contact"
+    >
       {{#if @loggedIn}}
         <LinkTo @route="logout">
           Edit Profile
@@ -27,10 +35,5 @@
         </LinkTo>
       {{/if}}
     </DropdownMenu>
-    {{#if @loggedIn}}
-      <LinkTo @route="add-property" class="menu-contact">
-        Add Your Property
-      </LinkTo>
-    {{/if}}
   </div>
 </nav>
