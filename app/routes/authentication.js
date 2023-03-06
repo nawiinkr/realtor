@@ -6,7 +6,7 @@ export default class AuthenticationRoute extends Route {
     if (!this.modelFor('application').loggedIn) {
       this.controllerFor('login').redirectTo = this.routeName;
       this.transitionTo('login');
-    }else {
+    } else {
       this.loggedInUser = appModel.user;
     }
   }

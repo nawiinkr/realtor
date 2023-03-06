@@ -22,7 +22,11 @@
     <label>
       Location
     </label>
-    <Input name="location" @value={{this.location}} />
+    {{!-- <Input name="location" @value={{this.location}} /> --}}
+    <LocationFinder @setCoordinates={{this.setCoordinates}}/>
+    {{#if (and this.location.lat this.location.lng)}}
+      Selected Coordinates : {{this.location.lat}} : {{this.location.lng}}
+    {{/if}}
     <label>
       Add Images via url
     </label>

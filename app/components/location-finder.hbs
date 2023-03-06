@@ -1,0 +1,9 @@
+<Ui::InputWithSuggestions
+  @suggestions={{this.suggestions}}
+  {{on "input" this.onLocationInput}}
+  @onSelection={{this.setLocation}}
+  @value={{this.value}}
+  as |suggestion|
+>
+  <div>{{suggestion.place_name}}</div>
+</Ui::InputWithSuggestions>

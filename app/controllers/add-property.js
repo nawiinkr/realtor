@@ -39,7 +39,8 @@ export default class AddPropertyController extends Controller {
       !this.title.trim() ||
       !this.owner.trim() ||
       !this.city.trim() ||
-      !this.location.trim() ||
+      !this.location.lat ||
+      !this.location.lng ||
       !this.imageUrls.length ||
       !this.description.trim() ||
       !this.category ||
@@ -61,9 +62,9 @@ export default class AddPropertyController extends Controller {
       description: this.description,
       userId: this.loggedInUser.id,
       userEmail: this.loggedInUser.email,
-      user: this.loggedInUser
+      user: this.loggedInUser,
     });
-    debugger;
+    
     await propertyObject.save();
     this.router.transitionTo('index');
   }
@@ -80,5 +81,13 @@ export default class AddPropertyController extends Controller {
   @action
   addImageUrl(urls) {
     this.imageUrls = [...urls];
+  }
+
+  @action
+  setCoordinates(lat, lng) {
+    this.location = {
+      lat,
+      lng,
+    };
   }
 }

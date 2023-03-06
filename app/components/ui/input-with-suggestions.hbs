@@ -1,0 +1,15 @@
+<div>
+  <Input @value={{@value}} ...attributes />
+  {{#if @suggestions.length}}
+    <div class="absolute bg-white">
+      {{#each @suggestions as |suggestion|}}
+        <div
+          class="cursor-pointer p-2 border-solid border-b border-x border-gray-400"
+          {{on "click" (fn @onSelection suggestion)}}
+        >
+          {{yield suggestion}}
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
+</div>
